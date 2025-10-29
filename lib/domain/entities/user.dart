@@ -1,6 +1,5 @@
-import 'package:equatable/equatable.dart';
-
-class User extends Equatable {
+// lib/domain/entities/user.dart
+class User {
   final String id;
   final String name;
   final String email;
@@ -10,7 +9,7 @@ class User extends Equatable {
   final DateTime createdAt;
   final DateTime lastLogin;
 
-  const User({
+  User({
     required this.id,
     required this.name,
     required this.email,
@@ -20,16 +19,4 @@ class User extends Equatable {
     required this.createdAt,
     required this.lastLogin,
   });
-
-  @override
-  List<Object?> get props => [
-    id,
-    name,
-    email,
-    phoneNumber,
-    profileImageUrl,
-    isAdmin,
-    createdAt,
-    lastLogin,
-  ];
 }

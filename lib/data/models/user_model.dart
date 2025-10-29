@@ -1,8 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+// lib/data/models/user_model.dart
 import '../../domain/entities/user.dart';
 
 class UserModel extends User {
-  const UserModel({
+  UserModel({
     required String id,
     required String name,
     required String email,
@@ -12,26 +12,26 @@ class UserModel extends User {
     required DateTime createdAt,
     required DateTime lastLogin,
   }) : super(
-    id: id,
-    name: name,
-    email: email,
-    phoneNumber: phoneNumber,
-    profileImageUrl: profileImageUrl,
-    isAdmin: isAdmin,
-    createdAt: createdAt,
-    lastLogin: lastLogin,
-  );
+         id: id,
+         name: name,
+         email: email,
+         phoneNumber: phoneNumber,
+         profileImageUrl: profileImageUrl,
+         isAdmin: isAdmin,
+         createdAt: createdAt,
+         lastLogin: lastLogin,
+       );
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
       id: json['id'],
       name: json['name'],
       email: json['email'],
-      phoneNumber: json['phoneNumber'],
-      profileImageUrl: json['profileImageUrl'],
-      isAdmin: json['isAdmin'] ?? false,
-      createdAt: (json['createdAt'] as Timestamp).toDate(),
-      lastLogin: (json['lastLogin'] as Timestamp).toDate(),
+      phoneNumber: json['phone_number'],
+      profileImageUrl: json['profile_image_url'],
+      isAdmin: json['is_admin'] ?? false,
+      createdAt: DateTime.parse(json['created_at']),
+      lastLogin: DateTime.parse(json['last_login']),
     );
   }
 
@@ -40,11 +40,11 @@ class UserModel extends User {
       'id': id,
       'name': name,
       'email': email,
-      'phoneNumber': phoneNumber,
-      'profileImageUrl': profileImageUrl,
-      'isAdmin': isAdmin,
-      'createdAt': Timestamp.fromDate(createdAt),
-      'lastLogin': Timestamp.fromDate(lastLogin),
+      'phone_number': phoneNumber,
+      'profile_image_url': profileImageUrl,
+      'is_admin': isAdmin,
+      'created_at': createdAt.toIso8601String(),
+      'last_login': lastLogin.toIso8601String(),
     };
   }
 }

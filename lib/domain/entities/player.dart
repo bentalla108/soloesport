@@ -1,6 +1,5 @@
-import 'package:equatable/equatable.dart';
-
-class Player extends Equatable {
+// lib/domain/entities/player.dart
+class Player {
   final String id;
   final String name;
   final String nickname;
@@ -10,10 +9,12 @@ class Player extends Equatable {
   final String imageUrl;
   final String teamId;
   final String gameId;
-  final Map<String, dynamic> stats;
+  final Map<String, String> stats;
   final Map<String, String> socialLinks;
+  final List<String>? achievements;
+  final String? biography;
 
-  const Player({
+  Player({
     required this.id,
     required this.name,
     required this.nickname,
@@ -25,20 +26,7 @@ class Player extends Equatable {
     required this.gameId,
     required this.stats,
     required this.socialLinks,
+    this.achievements,
+    this.biography,
   });
-
-  @override
-  List<Object?> get props => [
-    id,
-    name,
-    nickname,
-    age,
-    nationality,
-    role,
-    imageUrl,
-    teamId,
-    gameId,
-    stats,
-    socialLinks,
-  ];
 }
