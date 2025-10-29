@@ -1,8 +1,8 @@
 // lib/data/datasources/remote/tournament_remote_data_source.dart
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:soloesport/core/errors/exceptions.dart';
 import '../../../core/constants/api_constants.dart';
-import '../../../core/errors/failures.dart';
 import '../../models/registration_tournament_model.dart';
 import '../../models/tournement_model.dart';
 

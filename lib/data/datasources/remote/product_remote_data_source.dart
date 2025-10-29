@@ -1,7 +1,7 @@
 // lib/data/datasources/remote/product_remote_data_source.dart
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../../../core/errors/failures.dart';
+import 'package:soloesport/core/errors/exceptions.dart';
 import '../../models/product_model.dart';
 import '../../../core/constants/api_constants.dart';
 

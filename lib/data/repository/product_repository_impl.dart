@@ -1,5 +1,6 @@
 // lib/data/repositories/product_repository_impl.dart
 import 'package:dartz/dartz.dart';
+import 'package:soloesport/core/errors/exceptions.dart';
 import '../../core/errors/failures.dart';
 import '../../core/network/network_info.dart';
 import '../../domain/entities/product.dart';

@@ -1,8 +1,8 @@
 // lib/data/datasources/remote/user_remote_data_source.dart
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:soloesport/core/errors/exceptions.dart';
 import '../../../core/constants/api_constants.dart';
-import '../../../core/errors/failures.dart';
 import '../../models/user_model.dart';
 
 abstract class AuthRemoteDataSource {

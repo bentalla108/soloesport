@@ -1,6 +1,8 @@
 // lib/data/repositories/reservation_repository_impl.dart
 import 'package:dartz/dartz.dart';
 import '../../core/errors/failures.dart';
+import 'package:soloesport/core/errors/exceptions.dart';
+
 import '../../core/network/network_info.dart';
 import '../../domain/entities/reservation.dart';
 import '../../domain/repositories/reservation_repository.dart';

@@ -7,6 +7,7 @@ import '../../domain/repositories/user_repository.dart';
 import '../datasources/local/user_local_data_source.dart';
 import '../datasources/remote/user_remote_data_source.dart';
 import '../models/user_model.dart';
+import 'package:soloesport/core/errors/exceptions.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final AuthRemoteDataSource remoteDataSource;

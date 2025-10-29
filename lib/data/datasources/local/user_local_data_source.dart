@@ -1,6 +1,7 @@
 // lib/data/datasources/local/user_local_data_source.dart
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:soloesport/core/errors/exceptions.dart';
 import '../../../core/errors/failures.dart';
 import '../../models/user_model.dart';
 

@@ -1,5 +1,6 @@
 // lib/data/repositories/tournament_repository_impl.dart
 import 'package:dartz/dartz.dart';
+import 'package:soloesport/core/errors/exceptions.dart';
 import '../models/registration_tournament_model.dart';
 import '../../domain/entities/registration_tournement.dart';
 import '../../core/errors/failures.dart';
