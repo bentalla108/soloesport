@@ -1,27 +1,15 @@
-// lib/main.dart
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:soloesport/core/themes/app_theme.dart';
-import 'package:soloesport/injection.dart' as di;
-
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'core/constants/app_theme.dart';
 import 'routes.dart';
+import 'injection_container.dart' as di;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Définir l'orientation de l'écran en mode portrait uniquement
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
-
-  // Définir la couleur de la barre de statut
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.light,
-    ),
-  );
+  // Initialiser Firebase
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   // Initialiser les dépendances
   await di.init();
@@ -36,11 +24,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Solo Esport',
-      debugShowCheckedModeBanner: false,
       theme: AppTheme.darkTheme,
       initialRoute: AppRoutes.splash,
-      routes: AppRoutes.routes,
       onGenerateRoute: AppRoutes.onGenerateRoute,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

@@ -1,5 +1,6 @@
-// lib/domain/entities/reservation.dart
-class Reservation {
+import 'package:equatable/equatable.dart';
+
+class Reservation extends Equatable {
   final String id;
   final String userId;
   final DateTime date;
@@ -7,14 +8,11 @@ class Reservation {
   final String equipmentType;
   final int quantity;
   final int hours;
-  final int guests;
-  final int totalPrice;
-  final int depositPaid;
-  final String status; // 'pending', 'confirmed', 'completed', 'cancelled'
+  final double totalPrice;
+  final String status;
   final DateTime createdAt;
-  final DateTime? cancelledAt;
 
-  Reservation({
+  const Reservation({
     required this.id,
     required this.userId,
     required this.date,
@@ -22,11 +20,22 @@ class Reservation {
     required this.equipmentType,
     required this.quantity,
     required this.hours,
-    required this.guests,
     required this.totalPrice,
-    required this.depositPaid,
     required this.status,
     required this.createdAt,
-    this.cancelledAt,
   });
+
+  @override
+  List<Object?> get props => [
+    id,
+    userId,
+    date,
+    timeSlot,
+    equipmentType,
+    quantity,
+    hours,
+    totalPrice,
+    status,
+    createdAt,
+  ];
 }

@@ -1,38 +1,44 @@
-// lib/domain/entities/product.dart
-class Product {
+import 'package:equatable/equatable.dart';
+
+class Product extends Equatable {
   final String id;
   final String name;
   final String category;
-  final int price;
-  final int? oldPrice;
+  final double price;
   final String description;
   final String mainImage;
-  final List<String>? additionalImages;
+  final int stockQuantity;
+  final bool isFeatured;
+  final bool isNew;
   final double rating;
   final int reviews;
-  final bool isNew;
-  final bool isFeatured;
-  final List<Map<String, dynamic>>? variations;
-  final int stockQuantity;
-  final DateTime createdAt;
-  final DateTime updatedAt;
 
-  Product({
+  const Product({
     required this.id,
     required this.name,
     required this.category,
     required this.price,
-    this.oldPrice,
     required this.description,
     required this.mainImage,
-    this.additionalImages,
-    required this.rating,
-    required this.reviews,
-    required this.isNew,
-    required this.isFeatured,
-    this.variations,
     required this.stockQuantity,
-    required this.createdAt,
-    required this.updatedAt,
+    this.isFeatured = false,
+    this.isNew = false,
+    this.rating = 0.0,
+    this.reviews = 0,
   });
+
+  @override
+  List<Object?> get props => [
+    id,
+    name,
+    category,
+    price,
+    description,
+    mainImage,
+    stockQuantity,
+    isFeatured,
+    isNew,
+    rating,
+    reviews,
+  ];
 }

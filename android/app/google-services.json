@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "172626938153",
+    "project_id": "soloesport-1ba51",
+    "storage_bucket": "soloesport-1ba51.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172626938153:android:051e8370e225f48c440f38",
+        "android_client_info": {
+          "package_name": "com.soloesport.soloesport"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB32gQ2kmr1K0bLJw7FDBJ9kVJEQESNBc4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

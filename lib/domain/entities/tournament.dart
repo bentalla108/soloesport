@@ -1,5 +1,6 @@
-// lib/domain/entities/tournament.dart
-class Tournament {
+import 'package:equatable/equatable.dart';
+
+class Tournament extends Equatable {
   final String id;
   final String name;
   final String game;
@@ -10,7 +11,7 @@ class Tournament {
   final bool isOnline;
   final int registrationFee;
   final int prizePool;
-  final String status; // 'open', 'ongoing', 'completed', 'closed'
+  final String status;
   final int maxParticipants;
   final int currentParticipants;
   final String description;
@@ -18,12 +19,8 @@ class Tournament {
   final List<String> rules;
   final List<Map<String, dynamic>> prizes;
   final String image;
-  final String? currentStage;
-  final String? liveStreamUrl;
-  final List<Map<String, dynamic>>? results;
-  final String? highlightsUrl;
 
-  Tournament({
+  const Tournament({
     required this.id,
     required this.name,
     required this.game,
@@ -42,9 +39,27 @@ class Tournament {
     required this.rules,
     required this.prizes,
     required this.image,
-    this.currentStage,
-    this.liveStreamUrl,
-    this.results,
-    this.highlightsUrl,
   });
+
+  @override
+  List<Object?> get props => [
+    id,
+    name,
+    game,
+    gameIcon,
+    startDate,
+    endDate,
+    location,
+    isOnline,
+    registrationFee,
+    prizePool,
+    status,
+    maxParticipants,
+    currentParticipants,
+    description,
+    format,
+    rules,
+    prizes,
+    image,
+  ];
 }

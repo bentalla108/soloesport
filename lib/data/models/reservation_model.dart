@@ -1,8 +1,8 @@
-// lib/data/models/reservation_model.dart
+import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../domain/entities/reservation.dart';
 
 class ReservationModel extends Reservation {
-  ReservationModel({
+  const ReservationModel({
     required String id,
     required String userId,
     required DateTime date,
@@ -10,64 +10,49 @@ class ReservationModel extends Reservation {
     required String equipmentType,
     required int quantity,
     required int hours,
-    required int guests,
-    required int totalPrice,
-    required int depositPaid,
+    required double totalPrice,
     required String status,
     required DateTime createdAt,
-    DateTime? cancelledAt,
   }) : super(
-         id: id,
-         userId: userId,
-         date: date,
-         timeSlot: timeSlot,
-         equipmentType: equipmentType,
-         quantity: quantity,
-         hours: hours,
-         guests: guests,
-         totalPrice: totalPrice,
-         depositPaid: depositPaid,
-         status: status,
-         createdAt: createdAt,
-         cancelledAt: cancelledAt,
-       );
+    id: id,
+    userId: userId,
+    date: date,
+    timeSlot: timeSlot,
+    equipmentType: equipmentType,
+    quantity: quantity,
+    hours: hours,
+    totalPrice: totalPrice,
+    status: status,
+    createdAt: createdAt,
+  );
 
   factory ReservationModel.fromJson(Map<String, dynamic> json) {
     return ReservationModel(
       id: json['id'],
-      userId: json['user_id'],
-      date: DateTime.parse(json['date']),
-      timeSlot: DateTime.parse(json['time_slot']),
-      equipmentType: json['equipment_type'],
+      userId: json['userId'],
+      date: (json['date'] as Timestamp).toDate(),
+      timeSlot: (json['timeSlot'] as Timestamp).toDate(),
+      equipmentType: json['equipmentType'],
       quantity: json['quantity'],
       hours: json['hours'],
-      guests: json['guests'],
-      totalPrice: json['total_price'],
-      depositPaid: json['deposit_paid'],
+      totalPrice: (json['totalPrice'] as num).toDouble(),
       status: json['status'],
-      createdAt: DateTime.parse(json['created_at']),
-      cancelledAt:
-          json['cancelled_at'] != null
-              ? DateTime.parse(json['cancelled_at'])
-              : null,
+      createdAt: (json['createdAt'] as Timestamp).toDate(),
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'user_id': userId,
-      'date': date.toIso8601String(),
-      'time_slot': timeSlot.toIso8601String(),
-      'equipment_type': equipmentType,
+      'userId': userId,
+      'date': Timestamp.fromDate(date),
+      'timeSlot': Timestamp.fromDate(timeSlot),
+      'equipmentType': equipmentType,
       'quantity': quantity,
       'hours': hours,
-      'guests': guests,
-      'total_price': totalPrice,
-      'deposit_paid': depositPaid,
+      'totalPrice': totalPrice,
       'status': status,
-      'created_at': createdAt.toIso8601String(),
-      'cancelled_at': cancelledAt?.toIso8601String(),
+      'createdAt': Timestamp.fromDate(createdAt),
     };
   }
 }
